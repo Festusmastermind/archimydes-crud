@@ -16,8 +16,10 @@ function AddUser({ onAdd, updateUser, updateUserData, actionText }) {
         }
         //else ...submit the values based on condition
         const newUser = { name, email, role };
-        updateUser.editable == true ? updateUserData(updateUser.user.id, newUser) : onAdd(newUser);
-    
+        updateUser.editable == true
+            ? updateUserData(updateUser.user.id, newUser)
+            : onAdd(newUser);
+
         //after that the fields back to empty
         setName("");
         setEmail("");
@@ -47,7 +49,8 @@ function AddUser({ onAdd, updateUser, updateUserData, actionText }) {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="userModalLabel">
-                                <FaArrowLeft data-bs-dismiss="modal" /> {actionText}
+                                <FaArrowLeft data-bs-dismiss="modal" />{" "}
+                                {actionText}
                             </h5>
                             <button
                                 type="button"

@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 function User({ userDetails, deleteUser, editUser}) {
     
     return (
-        <tr>
+        <tr className="p-5">
             <td onClick={()=>editUser(userDetails)}  data-bs-toggle="modal"
                     data-bs-target="#userModal" style={{cursor: 'pointer'}}>{userDetails.name}</td>
             <td>{userDetails.email}</td>

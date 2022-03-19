@@ -2,7 +2,7 @@ import { useState } from "react";
 import Users from "./components/Users";
 
 function App() {
-    const [actionText, setActionText] = useState('Create User')
+    const [actionText, setActionText] = useState("Create User");
     const [updateUser, setupdateUser] = useState({
         user: {},
         editable: false,
@@ -27,8 +27,7 @@ function App() {
             role: "admin",
         },
     ]);
- 
-    
+
     //Add the user to User array List ..
     const addUser = (user) => {
         //generate a unique id
@@ -45,15 +44,19 @@ function App() {
     //sets the user data to be updated..
     const editUser = (user) => {
         setupdateUser({ user, editable: true });
-        setActionText('Update User')
+        setActionText("Update User");
     };
-    
-    //update the user Data 
-    const updateUserData = (id, updatedData) =>{
-        setUsers(users.map((user)=> user.id === id ? {...users, ...updatedData} : user))
-        setupdateUser({user: {}, editable: false}) //sets state back to empty...
-        setActionText('Create User')
-    }
+
+    //update the user Data
+    const updateUserData = (id, updatedData) => {
+        setUsers(
+            users.map((user) =>
+                user.id === id ? { ...users, ...updatedData } : user
+            )
+        );
+        setupdateUser({ user: {}, editable: false }); //sets state back to empty...
+        setActionText("Create User");
+    };
     return (
         <div className="container">
             <Users
@@ -61,7 +64,6 @@ function App() {
                 onAdd={addUser}
                 deleteUser={deleteUser}
                 editUser={editUser}
-                setupdateUser={setupdateUser}
                 updateUser={updateUser}
                 updateUserData={updateUserData}
                 actionText={actionText}
